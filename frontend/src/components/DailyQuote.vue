@@ -34,7 +34,7 @@
           month: "long",
           year: "numeric",
         };
-        return new Date().toLocaleDateString(undefined, options);
+        return new Date().toLocaleDateString("en-US", options);
       },
       getCachedQuote() {
         // Retrieve the cached quote from localStorage
