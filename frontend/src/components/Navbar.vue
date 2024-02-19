@@ -28,7 +28,7 @@ export default {
       // Hide the alert after 20 seconds
       setTimeout(() => {
         this.isAlertVisible = false;
-      }, 20000);
+      }, 10000);
     },
   },
   components: {
