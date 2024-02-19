@@ -4,7 +4,7 @@
       <a class="text-xl">daily demotivation</a>
     </div>
     <div class="flex-none">
-      <button @click="showAlert" class="btn btn-square btn-ghost">
+      <button @click="showAlert" class="btn btn-ghost">
         get motivated instead
       </button>
     </div>
