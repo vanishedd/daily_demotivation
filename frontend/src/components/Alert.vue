@@ -1,52 +1,61 @@
 <!-- Alert.vue -->
 <template>
-  <transition name="fade">
-    <div v-if="isVisible" class="alert alert-error bottom-right w-64">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="stroke-current shrink-0 h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-      <span class="ml-2">Error! Task failed successfully.</span>
+  <dialog
+    :id="get_motivated"
+    class="modal"
+    :open="isVisible"
+    @close="closeModal"
+  >
+    <div class="modal-overlay" @click="closeModal"></div>
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Dear User!</h3>
+      <p class="py-4">
+        This link is deactivated. Clicking this link may cause irreparable
+        damage to you. For security reasons, we have decided not to make this
+        option available to you.
+      </p>
+      <div class="modal-action">
+        <form @submit.prevent="closeModal" method="dialog">
+          <button class="btn">close</button>
+        </form>
+      </div>
     </div>
-  </transition>
+  </dialog>
 </template>
 
 <script>
-export default {
-  props: {
-    isVisible: Boolean,
-  },
-};
+  export default {
+    props: {
+      isVisible: Boolean,
+      modalId: String,
+    },
+    methods: {
+      closeModal() {
+        this.$emit("close");
+      },
+    },
+  };
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.5
+    ); /* Adjust the alpha value for the desired transparency */
+    z-index: 999;
+  }
 
-.bottom-right {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
-/* Customize width and styling */
-.w-64 {
-  width: 16rem; /* Adjust as needed */
-  max-width: calc(100% - 40px); /* Ensures it doesn't overflow the viewport */
-}
+  .modal-box {
+    position: relative;
+    z-index: 1000;
+    /* Add your other modal styles here */
+  }
 </style>

@@ -5,6 +5,7 @@
 
 .env
 .env.local
+.vscode
 
 # User-specific files
 *.rsuser
