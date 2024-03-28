@@ -193,7 +193,6 @@
     <footer class="footer footer-center p-4" :class="footerClass">
       <div>
         <p :class="textClass">Made with &lt;3 by vanishedd</p>
-        <p :class="textClass">Copyright © 2024 - All rights reserved</p>
       </div>
     </footer>
   </div>
