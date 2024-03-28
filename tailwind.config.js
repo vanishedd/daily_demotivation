@@ -6,18 +6,5 @@ export default {
     extend: {},
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-          "primary": "#525CEB",
-          "secondary": "#f6d860",
-          "accent": "#37cdbe",
-          "neutral": "#3d4451",
-          "base-100": "#ffffff",
-        },
-      },
-      "dark",
-    ],
-  }
+
 };
